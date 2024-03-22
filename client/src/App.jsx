@@ -1,0 +1,110 @@
+/* eslint-disable no-unused-vars */
+import { useEffect, createContext, useState } from "react";
+import "./styles/App.css";
+import axios from "axios";
+import Home from './components/Home';
+import Navbar from "./components/Navbar";
+import Register from "./components/Register";
+import Login from "./components/Login";
+
+import News from "./components/pages/News.jsx";
+import Earth from "./components/pages/Earth.jsx";
+import Business from "./components/pages/Business.jsx";
+import Sports from "./components/pages/Sports.jsx";
+import World from "./components/pages/World.jsx";
+import Footer from "./components/Footer.jsx";
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ToastContainer } from "react-toastify";
+import NotFound from "./components/NotFound.jsx";
+import Users from "./components/admin/Users.jsx";
+import Admin from "./components/Admin.jsx";
+import Contacts from "./components/admin/Contacts.jsx";
+import Create from "./components/admin/Create.jsx";
+import CreatePost from "./components/Author/Create.jsx";
+import AdmHome from "./components/admin/AdmHome.jsx";
+import UpdateUser from "./components/admin/UpdateUser.jsx";
+import Post from "./components/Post.jsx";
+import Author from "./components/Author.jsx";
+import YourPosts from "./components/Author/YourPosts.jsx";
+// import Footer from "./components/Footer.jsx";
+
+export const AppContext = createContext();
+
+function App() {
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    axios.defaults.withCredentials = true;
+    axios.get("http://localhost:8000/auth/")
+      .then((res) => {
+        // console.log(res);
+        setUser(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }, [])
+
+  return (
+    <div>
+      <AppContext.Provider value={user}>
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path='/' element={<Home />} />
+
+            <Route path="posts/latest/:id" element={<Post />} />
+            <Route path="posts/news/:id" element={<Post />} />
+            <Route path="posts/sports/:id" element={<Post />} />
+            <Route path="posts/business/:id" element={<Post />} />
+            <Route path="posts/earth/:id" element={<Post />} />
+            <Route path="posts/world/:id" element={<Post />} />
+
+            <Route path="/news" element={<News />} />
+            <Route path="/business" element={<Business />} />
+            <Route path="/sports" element={<Sports />} />
+            <Route path="/earth" element={<Earth />} />
+            <Route path="/world" element={<World />} />
+            
+    
+            {/* Admin Route */}
+            <Route path="/admin" element={<Admin />}>
+              <Route index path="" element={<AdmHome />} />
+              <Route path="update-user/:id" element={<UpdateUser />} />
+              <Route path="users" element={<Users />} />
+              <Route path="contacts" element={<Contacts />} />
+              <Route path="create" element={<Create />} />
+            </Route>
+
+            {/* Author Route */}
+            <Route path="/author" element={<Author />}>
+              <Route path="" element={<YourPosts />} />
+              <Route path="create-post" element={<CreatePost />} />
+            </Route>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          
+          <Footer />
+        </BrowserRouter>
+        <ToastContainer
+          position="top-center"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+          transition:Bounce
+        />
+      </AppContext.Provider>
+    </div>
+  )
+}
+
+export default App
