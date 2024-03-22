@@ -8,6 +8,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import bgImg from '../assets/reel_bg.jpg';
 import bgImg2 from '../assets/p0836dcl.jpg';
 import Newsletter from './Newsletter.jsx';
+import AuthorSteps from './AuthorSteps.jsx';
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -315,6 +316,7 @@ const Home = () => {
           })
         }
       </div>
+      <AuthorSteps />
       <Newsletter />
     </div>
   )

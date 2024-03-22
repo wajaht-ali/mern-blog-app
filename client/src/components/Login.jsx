@@ -42,7 +42,7 @@ const Login = () => {
             <div className='max-w-[70%] rounded-md mx-auto border-2 border-white p-4'>
                 <div className="flex flex-col items-center">
                     <img width={"100px"} height={"100px"} src={logo} alt="imgLogo" />
-                    <h2 className='font-bold text-center text-black text-2xl mb-4'>Sign In to your account</h2>
+                    <h2 className='font-bold text-center text-black text-2xl mb-4'>Sign in to your account</h2>
                 </div>
                 <form className='w-[400px]' onSubmit={handleSubmit}>
 

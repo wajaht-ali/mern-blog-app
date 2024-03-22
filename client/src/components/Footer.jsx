@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { FaFacebookSquare, FaTwitterSquare, FaInstagramSquare, FaYoutubeSquare } from "react-icons/fa";
 import { AiFillLinkedin } from "react-icons/ai";
+import logo from "../assets/logo.jpeg";
 
 const Footer = () => {
     return (
@@ -13,21 +14,7 @@ const Footer = () => {
                         title="Company"
                         className="inline-flex items-center"
                     >
-                        <svg
-                            className="w-8 text-deep-purple-accent-400"
-                            viewBox="0 0 24 24"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeMiterlimit="10"
-                            stroke="currentColor"
-                            fill="none"
-                        >
-                            <rect x="3" y="1" width="7" height="12" />
-                            <rect x="3" y="17" width="7" height="6" />
-                            <rect x="14" y="1" width="7" height="6" />
-                            <rect x="14" y="11" width="7" height="12" />
-                        </svg>
+                        <img width={"80px"} height={"100px"} src={logo} alt="imgLogo" />
                         <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
                             The News
                         </span>
