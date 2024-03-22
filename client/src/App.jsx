@@ -27,6 +27,7 @@ import UpdateUser from "./components/admin/UpdateUser.jsx";
 import Post from "./components/Post.jsx";
 import Author from "./components/Author.jsx";
 import YourPosts from "./components/Author/YourPosts.jsx";
+import Application from "./components/pages/Application.jsx";
 // import Footer from "./components/Footer.jsx";
 
 export const AppContext = createContext();
@@ -68,8 +69,9 @@ function App() {
             <Route path="/sports" element={<Sports />} />
             <Route path="/earth" element={<Earth />} />
             <Route path="/world" element={<World />} />
-            
-    
+            <Route path="/apply-here" element={<Application />} />
+
+
             {/* Admin Route */}
             <Route path="/admin" element={<Admin />}>
               <Route index path="" element={<AdmHome />} />
@@ -86,7 +88,7 @@ function App() {
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
-          
+
           <Footer />
         </BrowserRouter>
         <ToastContainer

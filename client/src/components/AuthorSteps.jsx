@@ -41,16 +41,16 @@ const AuthorSteps = () => {
                 </p>
             </div>
             <div className="grid gap-10 lg:grid-cols-4 sm:grid-cols-2">
-                <div>
-                    <div className="flex items-center justify-between mb-6">
+                <div className=" border-dashed hover:border-solid border-2 border-blue-600 p-4">
+                    <div className="flex items-center justify-between mb-6 ">
                         <p className="text-2xl font-bold">Step 1</p>
                         <FaArrowRight className='w-6 text-gray-700 transform rotate-90 sm:rotate-0' />
                     </div>
                     <p className="text-gray-600">
-                       First, <Link className="text-blue-600 font-semibold" to={"/register"}>register</Link> your account with The NEWS and then login to your profile.
+                        First, <Link className="text-blue-600 font-semibold" to={"/register"}>register</Link> your account with The NEWS and then login to your profile.
                     </p>
                 </div>
-                <div>
+                <div className=" border-dashed hover:border-solid border-2 border-blue-600 p-4">
                     <div className="flex items-center justify-between mb-6">
                         <p className="text-2xl font-bold">Step 2</p>
                         <FaArrowRight className='w-6 text-gray-700 transform rotate-90 sm:rotate-0' />
@@ -59,29 +59,29 @@ const AuthorSteps = () => {
                         After creating an account, go to the authorship <Link className="text-blue-600 font-semibold" to={"/apply-here"}>application page</Link> and fill the application form.
                     </p>
                 </div>
-                <div>
+                <div className=" border-dashed hover:border-solid border-2 border-blue-600 p-4">
                     <div className="flex items-center justify-between mb-6">
                         <p className="text-2xl font-bold">Step 3</p>
                         <FaArrowRight className='w-6 text-gray-700 transform rotate-90 sm:rotate-0' />
                     </div>
                     <p className="text-gray-600">
-                       Once you submit the application, our support team will carefully evaluate your eligibility criteria on the basis of details your provided.
+                        Once you submit the application, our support team will carefully evaluate your eligibility criteria on the basis of details your provided.
                     </p>
                 </div>
-                <div>
+                <div className=" border-dashed hover:border-solid border-2 border-blue-600 p-4">
                     <div className="flex items-center justify-between mb-6">
                         <p className="text-2xl font-bold">Success</p>
-                        <MdOutlineFileDownloadDone size={25} className='w-6 text-gray-700'/>
+                        <MdOutlineFileDownloadDone size={25} className='w-6 text-gray-700' />
                     </div>
                     <p className="text-gray-600">
                         If your profile fulfill the elgibility criteria then your authorship account will be activated in One day.
                     </p>
                 </div>
             </div>
-            <div className='flex items-center justify-center mt-4'>
+            <div className='flex items-center justify-center mt-8'>
                 <Link to={"/apply-here"} className='bg-blue-600 rounded py-3 px-4 text-white font-semibold hover:bg-blue-500'>Apply Here...</Link>
             </div>
-            
+
         </div>
     );
 };
