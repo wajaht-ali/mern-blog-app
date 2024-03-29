@@ -18,7 +18,7 @@ const Home = () => {
     axios.defaults.withCredentials = true;
     axios.get("http://localhost:8000/posts/getAllNews")
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         setPosts(result.data);
       })
       .catch((error) => {

@@ -18,7 +18,7 @@ const Post = () => {
         axios.defaults.withCredentials = true;
         axios.get("http://localhost:8000/posts/latest/" + id)
             .then((result) => {
-                // console.log(result);
+                console.log(result);
                 setPost(result.data);
             })
             .catch((error) => {

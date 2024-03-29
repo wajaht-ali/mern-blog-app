@@ -30,7 +30,7 @@ const Sports = () => {
       <div className="flex flex-wrap items-center gap-y-4 justify-center md:justify-evenly gap-2 overflow-y-scroll">
         {
           posts.filter(filterNews).map((item) => {
-            return <Link key={item._id} to={`posts/${item.category}/${item._id}`}>
+            return <Link key={item._id} to={`/${item.category}/${item._id}`}>
               {/* <div style={{ backgroundImage: `url(http://localhost:8000/Images/${item.file})` }} className='relative h-[180px] w-[300px] p-2 bg-center bg-no-repeat bg-cover flex flex-col justify-end' key={posts.id}>
                 <div className="absolute inset-0" style={{ zIndex: '1' }}>
                   <div className='absolute inset-0 bg-black opacity-30'></div>

@@ -57,6 +57,7 @@ const YourPosts = () => {
                     </div> */}
                     <div className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-gray-200 shadow-lg">
                       <img
+                        className='h-[250px] w-full'
                         src={`http://localhost:8000/Images/${item.file}`}
                         alt="myImage"
                       />

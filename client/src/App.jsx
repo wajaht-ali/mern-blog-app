@@ -8,7 +8,6 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 
 import News from "./components/pages/News.jsx";
-import Earth from "./components/pages/Earth.jsx";
 import Business from "./components/pages/Business.jsx";
 import Sports from "./components/pages/Sports.jsx";
 import World from "./components/pages/World.jsx";
@@ -28,7 +27,7 @@ import Post from "./components/Post.jsx";
 import Author from "./components/Author.jsx";
 import YourPosts from "./components/Author/YourPosts.jsx";
 import Application from "./components/pages/Application.jsx";
-// import Footer from "./components/Footer.jsx";
+
 
 export const AppContext = createContext();
 
@@ -59,15 +58,17 @@ function App() {
 
             <Route path="posts/latest/:id" element={<Post />} />
             <Route path="posts/news/:id" element={<Post />} />
+            <Route path="news/:id" element={<Post />} /> 
             <Route path="posts/sports/:id" element={<Post />} />
+            <Route path="sports/:id" element={<Post />} />
             <Route path="posts/business/:id" element={<Post />} />
-            <Route path="posts/earth/:id" element={<Post />} />
+            <Route path="business/:id" element={<Post />} />
             <Route path="posts/world/:id" element={<Post />} />
+            <Route path="world/:id" element={<Post />} />
 
             <Route path="/news" element={<News />} />
             <Route path="/business" element={<Business />} />
             <Route path="/sports" element={<Sports />} />
-            <Route path="/earth" element={<Earth />} />
             <Route path="/world" element={<World />} />
             <Route path="/apply-here" element={<Application />} />
 

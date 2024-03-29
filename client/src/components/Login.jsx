@@ -38,13 +38,13 @@ const Login = () => {
             })
     }
     return (
-        <div className='h-screen w-full mx-auto flex items-center justify-center border border-gray-400 rounded-md'>
-            <div className='max-w-[70%] rounded-md mx-auto border-2 border-white p-4'>
+        <div className='h-screen w-full mx-auto flex items-center justify-center rounded-md'>
+            <div className='max-w-[90%] rounded-md mx-auto shadow-md shadow-gray-300 p-4'>
                 <div className="flex flex-col items-center">
                     <img width={"100px"} height={"100px"} src={logo} alt="imgLogo" />
                     <h2 className='font-bold text-center text-black text-2xl mb-4'>Sign in to your account</h2>
                 </div>
-                <form className='w-[400px]' onSubmit={handleSubmit}>
+                <form className='w-[300px]' onSubmit={handleSubmit}>
 
                     <div className='flex flex-col'>
                         <label className='my-2 text-black font-semibold' htmlFor="email">Email:</label>

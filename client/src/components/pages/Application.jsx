@@ -10,10 +10,10 @@ const Application = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
     }
     return (
-        <div className='h-auto w-full flex flex-col mx-auto px-4 py-4 my-3 border'>
+        <div className='h-auto w-full flex flex-col mx-auto md:px-4 py-4 my-3 border'>
             <div className="px-4 mx-4">
                 <h2 className='text-center text-2xl md:text-4xl font-semibold my-4'>Join us as an
                     <span className='text-blue-600'> Author
@@ -46,28 +46,28 @@ const Application = () => {
                 <div className='border-2 border-black w-[200px] mx-auto'></div>
                 {/* Application Form */}
                 <form onSubmit={handleSubmit} className='w-full md:w-[400px] flex flex-col items-center' >
-                    <div className='flex flex-col my-2'>
+                    <div className='md:w-full flex flex-col my-2'>
                         <label className='my-2 font-semibold' htmlFor="name">Name:</label>
-                        <input className='w-[300px] md:w-full border border-gray-400 px-2 py-1 rounded-md outline-none text-black' type="text" placeholder='Enter Name' onChange={(e) => setName(e.target.value)} value={name}/>
+                        <input className='w-[300px] md:w-full border border-gray-400 px-2 py-1 rounded-md outline-none text-black' type="text" placeholder='Enter Name' onChange={(e) => setName(e.target.value)} value={name} />
                     </div>
 
-                    <div className='flex flex-col my-2'>
+                    <div className='md:w-full flex flex-col my-2'>
                         <label className='my-2 font-semibold' htmlFor="email">Email:</label>
-                        <input className='w-[300px] md:w-full border border-gray-400 px-2 py-1 rounded-md outline-none text-black' type="email" placeholder='Enter Email' onChange={(e) => setEmail(e.target.value)} value={email}/>
+                        <input className='w-[300px] md:w-full border border-gray-400 px-2 py-1 rounded-md outline-none text-black' type="email" placeholder='Enter Email' onChange={(e) => setEmail(e.target.value)} value={email} />
                     </div>
 
-                    <div className='flex flex-col my-2'>
+                    <div className='md:w-full flex flex-col my-2'>
                         <label className='my-2 font-semibold' htmlFor="social">Facebook Profile:</label>
-                        <input className='w-[300px] md:w-full border border-gray-400 px-2 py-1 rounded-md outline-none text-black' type="url" placeholder='Enter Facebook Profile link' onChange={(e) => setUrlF(e.target.value)} value={urlF}/>
+                        <input className='w-[300px] md:w-full border border-gray-400 px-2 py-1 rounded-md outline-none text-black' type="url" placeholder='Enter Facebook Profile link' onChange={(e) => setUrlF(e.target.value)} value={urlF} />
                     </div>
 
-                    <div className='flex flex-col my-2'>
+                    <div className='md:w-full flex flex-col my-2'>
                         <label className='my-2 font-semibold' htmlFor="social">Twitter Profile:</label>
-                        <input className='w-[300px] md:w-full border border-gray-400 px-2 py-1 rounded-md outline-none text-black' type="url" placeholder='Enter Twitter Profile link' onChange={(e) => setUrlT(e.target.value)} value={urlT}/>
+                        <input className='w-[300px] md:w-full border border-gray-400 px-2 py-1 rounded-md outline-none text-black' type="url" placeholder='Enter Twitter Profile link' onChange={(e) => setUrlT(e.target.value)} value={urlT} />
                     </div>
 
-                    <div className='flex flex-row my-2'>
-                        <input type="checkbox" id='checkbox' required onChange={(e) => setCheck(e.target.checked)} value={check}/>
+                    <div className='md:w-full flex flex-row my-2'>
+                        <input type="checkbox" id='checkbox' required onChange={(e) => setCheck(e.target.checked)} value={check} />
                         <label className='my-2 px-2 font-semibold' htmlFor="social">Check this box to accept our privacy policy.</label>
                     </div>
                     <button onClick={handleSubmit} className="w-[300px] md:w-full bg-gray-800 text-white px-3 py-2 rounded-lg my-4 font-bold ">Submit</button>

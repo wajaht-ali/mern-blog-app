@@ -29,15 +29,15 @@ const Register = () => {
       })
   }
   return (
-    <div className='h-screen w-full text-black mx-auto flex items-center justify-center border border-gray-400 rounded-md'>
-      <div className='max-w-[70%] rounded-md mx-auto border-2 border-white p-4'>
+    <div className='h-screen w-full text-black mx-auto flex items-center justify-center'>
+      <div className=' rounded-md mx-auto border-2 border-white p-4 shadow-md shadow-gray-300'>
 
         <div className="flex flex-col items-center">
           <img width={"100px"} height={"100px"} src={logo} alt="imgLogo" />
           <h2 className='font-bold text-center text-black text-2xl mb-4'>Register your account here.</h2>
         </div>
 
-        <form className='w-[400px]' onSubmit={handleSubmit}>
+        <form className='w-[300px]' onSubmit={handleSubmit}>
           <div className='flex flex-col my-2'>
             <label className='my-2 font-semibold' htmlFor="name">Name:</label>
             <input className='w-[300px] md:w-full border border-gray-400 px-2 py-1 rounded-md outline-none text-black' type="text" placeholder='Enter Name' onChange={(e) => setName(e.target.value)} />
