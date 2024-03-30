@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import { UserRouter } from "./routes/user.js";
 import { PostRouter } from "./routes/posts.js";
 import { AdminRouter } from "./routes/admin.js";
+import { ApplyRouter } from "./routes/apply.js";
 
 dotenv.config();
 
@@ -26,6 +27,7 @@ mongoose.connect(db_URI)
 
 app.use("/auth", UserRouter);
 app.use("/posts", PostRouter);
+app.use('/apply', ApplyRouter)
 app.use("/admin", AdminRouter);
 
 

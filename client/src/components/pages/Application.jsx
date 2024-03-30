@@ -1,16 +1,31 @@
 /* eslint-disable no-unused-vars */
+import axios from 'axios';
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const Application = () => {
     const [name, setName] = useState();
     const [email, setEmail] = useState();
-    const [urlF, setUrlF] = useState();
-    const [urlT, setUrlT] = useState();
-    const [check, setCheck] = useState();
+    const [facebook, setFacebook] = useState();
+    const [twitter, setTwitter] = useState();
+    const [checkbox, setCheckbox] = useState();
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        try {
+            const res = await axios.post("http://localhost:8000/apply/", { name, email, facebook, twitter, checkbox });
+            if (res.data.success) {
+                alert(res.data.message);
+                navigate('/');
+            }
+            else {
+                alert(res.data.message);
+                navigate('/');
+            }
+        } catch (error) {
+            console.log(`Error with application page`);
+        }
     }
     return (
         <div className='h-auto w-full flex flex-col mx-auto md:px-4 py-4 my-3 border'>
@@ -58,19 +73,19 @@ const Application = () => {
 
                     <div className='md:w-full flex flex-col my-2'>
                         <label className='my-2 font-semibold' htmlFor="social">Facebook Profile:</label>
-                        <input className='w-[300px] md:w-full border border-gray-400 px-2 py-1 rounded-md outline-none text-black' type="url" placeholder='Enter Facebook Profile link' onChange={(e) => setUrlF(e.target.value)} value={urlF} />
+                        <input className='w-[300px] md:w-full border border-gray-400 px-2 py-1 rounded-md outline-none text-black' type="url" placeholder='Enter Facebook Profile link' onChange={(e) => setFacebook(e.target.value)} value={facebook} />
                     </div>
 
                     <div className='md:w-full flex flex-col my-2'>
                         <label className='my-2 font-semibold' htmlFor="social">Twitter Profile:</label>
-                        <input className='w-[300px] md:w-full border border-gray-400 px-2 py-1 rounded-md outline-none text-black' type="url" placeholder='Enter Twitter Profile link' onChange={(e) => setUrlT(e.target.value)} value={urlT} />
+                        <input className='w-[300px] md:w-full border border-gray-400 px-2 py-1 rounded-md outline-none text-black' type="url" placeholder='Enter Twitter Profile link' onChange={(e) => setTwitter(e.target.value)} value={twitter} />
                     </div>
 
                     <div className='md:w-full flex flex-row my-2'>
-                        <input type="checkbox" id='checkbox' required onChange={(e) => setCheck(e.target.checked)} value={check} />
+                        <input type="checkbox" id='checkbox' required onChange={(e) => setCheckbox(e.target.checked)} value={checkbox} />
                         <label className='my-2 px-2 font-semibold' htmlFor="social">Check this box to accept our privacy policy.</label>
                     </div>
-                    <button onClick={handleSubmit} className="w-[300px] md:w-full bg-gray-800 text-white px-3 py-2 rounded-lg my-4 font-bold ">Submit</button>
+                    <button type='submit' onClick={handleSubmit} className="w-[300px] md:w-full bg-gray-800 text-white px-3 py-2 rounded-lg my-4 font-bold ">Submit</button>
                 </form>
 
             </div>
