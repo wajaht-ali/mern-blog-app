@@ -1,20 +1,30 @@
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
+/* eslint-disable no-unused-vars */
 import { MdOutlineFrontHand } from "react-icons/md";
 import { CiCalendarDate } from "react-icons/ci";
+import { useState } from "react";
+import axios from "axios";
+
+
 const Newsletter = () => {
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post("http://localhost:8000/auth/newsletter", { email });
+      if (res.data.success) {
+        alert(res.data.message);
+        setEmail('');
+      }
+      else {
+        alert(res.data.message);
+      }
+    } catch (error) {
+      console.log(`Error with newsletter ${error}`);
+    }
+
+  }
+
   return (
     <div className="relative isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32 my-2 rounded">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -25,21 +35,21 @@ const Newsletter = () => {
               We bring latest news, blogs and events updates for our valued members every weekend. Please subscribe to our newsletter to get notified first of all.
             </p>
             <div className="mt-6 flex max-w-md gap-x-4">
-              <form >
+              <form onSubmit={handleSubmit}>
                 <label htmlFor="email-address" className="sr-only">
                   Email address
                 </label>
                 <input
-                  id="email-address"
-                  name="email"
                   type="email"
-                  autoComplete="email"
                   required
                   className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
                   placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
-              </form>
+                </form>
               <button
+                onClick={handleSubmit}
                 type="submit"
                 className="flex-none rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
               >

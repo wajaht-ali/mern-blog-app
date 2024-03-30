@@ -6,9 +6,9 @@ import LoginController from "../controllers/login_controller.js";
 import RegisterController from "../controllers/register_controller.js";
 import { GetAllUsers } from "../controllers/getAllUsers.js";
 import { verifyAuthor } from "../middlewares/verifyAuthor.js";
+import { newsLetterController } from "../controllers/newsletterController.js";
 
 // import { verifyAdmin } from "../middlewares/verifyAdmin.js";
-
 
 dotenv.config();
 const router = express.Router();
@@ -17,48 +17,30 @@ const router = express.Router();
 router.post("/registerUser", RegisterController);
 
 router.get("/", verifyUser, (req, res) => {
-    return res.json({ emial: req.email, role: req.role });
-})
+  return res.json({ emial: req.email, role: req.role });
+});
 
-router.post("/loginUser", LoginController)
+router.post("/loginUser", LoginController);
 
 router.get("/logout", (req, res) => {
-    res.clearCookie("token");
-    res.json("Success");
-})
+  res.clearCookie("token");
+  res.json("Success");
+});
 
 router.get("/verify", verifyUser, (req, res) => {
-    return res.json({ role: req.role, status: true, message: "Success" });
-})
+  return res.json({ role: req.role, status: true, message: "Success" });
+});
+
+router.post('/newsletter', newsLetterController);
 
 router.get("/verifyAdmin", verifyAdmin, (req, res) => {
-    // return res.json("Success");
-    // const userData = {
-    //     id: req._id,
-    //     // role: req.role,
-    //     // email: req.email,
-    // };
-    // const response = {
-    //     adminInfo: userData,
-    //     message: "Success"
-    // };
-    res.json({message: "Success", id: req._id});
-})
+  res.json({ message: "Success", id: req._id });
+});
 
 router.get("/verifyAuthor", verifyAuthor, (req, res) => {
-    // return res.json({ name: req.name, role: req.role, email: req.email, message: "Success"});
-    // const userData = {
-    //     id: req._id,
-    //     role: req.role,
-    //     email: req.email,
-    // };
-    // const response = {
-    //     userInfo: userData,
-    //     message: "Success"
-    // };
-    res.json({message: "Success", id: req._id});
-})
+  res.json({ message: "Success", id: req._id });
+});
 
-router.get("/users", GetAllUsers)
+router.get("/users", GetAllUsers);
 
 export { router as UserRouter };
