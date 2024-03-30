@@ -5,7 +5,7 @@ import AllPosts from "../controllers/post_controller.js";
 import { CreatePostController } from "../controllers/create_post.js";
 import { GetPostById } from "../controllers/getPostById.js";
 import { deletePostById } from "../controllers/deletePost.js";
-import { isSignedIn } from "../middlewares/requireSignIn.js";
+// import { isSignedIn } from "../middlewares/requireSignIn.js";
 
 const router = express.Router();
 

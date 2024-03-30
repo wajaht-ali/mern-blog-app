@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 const Application = () => {
@@ -9,7 +9,24 @@ const Application = () => {
     const [facebook, setFacebook] = useState();
     const [twitter, setTwitter] = useState();
     const [checkbox, setCheckbox] = useState();
+
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await axios.get("http://localhost:8000/apply/")
+                // console.log(res);
+                if (res.data.success) {
+                    alert(res.data.message);
+                    navigate('/login');
+                }
+            } catch (error) {
+                console.log(`Error with secure apply route ${error}`)
+            }
+        }
+        fetchData();
+    }, [])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -21,7 +38,6 @@ const Application = () => {
             }
             else {
                 alert(res.data.message);
-                navigate('/');
             }
         } catch (error) {
             console.log(`Error with application page`);

@@ -1,14 +1,21 @@
 import jwt from "jsonwebtoken";
 
-export const isSignedIn = (req, res, next) => {
+export const requireSignIn = (req, res, next) => {
     const token = req.cookies.token;
+    // console.log(token);
     if (!token) {
-        res.json("Token not available");
+        return res.status(201).send({
+            success: true,
+            message: "Please Login first."
+        })
     }
     else {
         jwt.verify(token,  process.env.screte_KEY, (err, decode) => {
             if (err) {
-                res.json("Error with token");
+                return res.status(201).send({
+                    success: true,
+                    message: err
+                })
             }
             else {
                 req.email = decode.email;
