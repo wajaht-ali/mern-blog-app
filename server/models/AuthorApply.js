@@ -10,6 +10,10 @@ const AuthorApplySchema = new mongoose.Schema(
       type: String,
       require: true,
     },
+    description: {
+      type: String,
+      require: true,
+    },
     facebook: {
       type: String,
       require: true,

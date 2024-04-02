@@ -10,13 +10,15 @@ import bgImg2 from '../assets/p0836dcl.jpg';
 import Newsletter from './Newsletter.jsx';
 import AuthorSteps from './AuthorSteps.jsx';
 
+const API_KEY = import.meta.env.VITE_REACT_APP_API;
+
 const Home = () => {
   const [posts, setPosts] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     axios.defaults.withCredentials = true;
-    axios.get("http://localhost:8000/posts/getAllNews")
+    axios.get(`${API_KEY}/posts/getAllNews`)
       .then((result) => {
         // console.log(result);
         setPosts(result.data);
@@ -24,7 +26,7 @@ const Home = () => {
       .catch((error) => {
         console.log(error);
       })
-  }, [])
+  }, []) 
 
   const latestNews = (posts) => {
     return posts.category === "latest"
@@ -50,6 +52,7 @@ const Home = () => {
       {/* Welcome page section  */}
       <div className="flex items-center justify-between py-3 mt-2">
         <h2 className='border-l-4 rounded-sm border-blue-400 text-lg md:text-xl font-bold px-2'>Welcome to the <span className='uppercase font-bold'>news</span></h2>
+
         <p className='hidden md:block text-lg text-gray-500 font-semibold'><Date /></p>
       </div>
 

@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const Application = () => {
     const [name, setName] = useState();
     const [email, setEmail] = useState();
+    const [description, setDescription] = useState();
     const [facebook, setFacebook] = useState();
     const [twitter, setTwitter] = useState();
     const [checkbox, setCheckbox] = useState();
@@ -31,7 +32,7 @@ const Application = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post("http://localhost:8000/apply/", { name, email, facebook, twitter, checkbox });
+            const res = await axios.post("http://localhost:8000/apply/", { name, email, description, facebook, twitter, checkbox });
             if (res.data.success) {
                 alert(res.data.message);
                 navigate('/');
@@ -85,6 +86,11 @@ const Application = () => {
                     <div className='md:w-full flex flex-col my-2'>
                         <label className='my-2 font-semibold' htmlFor="email">Email:</label>
                         <input className='w-[300px] md:w-full border border-gray-400 px-2 py-1 rounded-md outline-none text-black' type="email" placeholder='Enter Email' onChange={(e) => setEmail(e.target.value)} value={email} />
+                    </div>
+
+                    <div className='md:w-full flex flex-col my-2'>
+                        <label className='my-2 font-semibold' htmlFor="email">Description:</label>
+                        <textarea className='w-[300px] md:w-full border border-gray-400 px-2 py-1 rounded-md outline-none text-black' placeholder='Please provide some detail about yourself...' onChange={(e) => setDescription(e.target.value)} value={description} cols="30" rows="10"></textarea>
                     </div>
 
                     <div className='md:w-full flex flex-col my-2'>

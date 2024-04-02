@@ -26,17 +26,21 @@ import UpdateUser from "./components/admin/UpdateUser.jsx";
 import Post from "./components/Post.jsx";
 import Author from "./components/Author.jsx";
 import YourPosts from "./components/Author/YourPosts.jsx";
-import Application from "./components/pages/Application.jsx";
+import Application from './components/pages/Application.jsx';
+import ApplicationForm from './components/admin/Application.jsx';
+
+//dotenv config
 
 
 export const AppContext = createContext();
 
+const API_KEY = import.meta.env.VITE_REACT_APP_API;
 function App() {
   const [user, setUser] = useState({});
 
   useEffect(() => {
     axios.defaults.withCredentials = true;
-    axios.get("http://localhost:8000/auth/")
+    axios.get(`${API_KEY}/auth`)
       .then((res) => {
         // console.log(res);
         setUser(res.data);
@@ -58,7 +62,7 @@ function App() {
 
             <Route path="posts/latest/:id" element={<Post />} />
             <Route path="posts/news/:id" element={<Post />} />
-            <Route path="news/:id" element={<Post />} /> 
+            <Route path="news/:id" element={<Post />} />
             <Route path="posts/sports/:id" element={<Post />} />
             <Route path="sports/:id" element={<Post />} />
             <Route path="posts/business/:id" element={<Post />} />
@@ -79,6 +83,9 @@ function App() {
               <Route path="update-user/:id" element={<UpdateUser />} />
               <Route path="users" element={<Users />} />
               <Route path="contacts" element={<Contacts />} />
+
+              <Route path="contacts/:id" element={<ApplicationForm />} />
+
               <Route path="create" element={<Create />} />
             </Route>
 

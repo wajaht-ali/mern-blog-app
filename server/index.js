@@ -8,6 +8,7 @@ import { PostRouter } from "./routes/posts.js";
 import { AdminRouter } from "./routes/admin.js";
 import { ApplyRouter } from "./routes/apply.js";
 import { requireSignIn } from "./middlewares/requireSignIn.js";
+import { chatRouter } from "./routes/chat.js";
 
 
 dotenv.config();
@@ -33,6 +34,7 @@ app.use("/auth", UserRouter);
 app.use("/posts", PostRouter);
 app.use("/apply", requireSignIn, ApplyRouter);
 app.use("/admin", AdminRouter);
+app.use("/chat", chatRouter);
 
 app.listen(PORT, (req, res) => {
   console.log(`Server is running on ${PORT}`);

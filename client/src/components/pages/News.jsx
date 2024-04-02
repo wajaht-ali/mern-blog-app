@@ -31,13 +31,6 @@ const News = () => {
         {
           posts.filter(filterNews).map((item) => {
             return <Link key={item._id} to={`/${item.category}/${item._id}`}>
-              {/* <div style={{ backgroundImage: `url(http://localhost:8000/Images/${item.file})` }} className='relative h-[180px] w-[300px] p-2 bg-center bg-no-repeat bg-cover flex flex-col justify-end' key={posts.id}>
-                <div className="absolute inset-0" style={{ zIndex: '1' }}>
-                  <div className='absolute inset-0 bg-black opacity-30'></div>
-                </div>
-                <p className='text-white z-10 font-bold text-xl md:text-2xl'>{item.title}</p>
-                <p className='text-white z-10 md: text-lg font-semibold'>{item.category}</p>
-              </div> */}
               <div className="w-[350px] overflow-hidden transition-shadow duration-300 bg-white rounded shadow-gray-200 shadow-lg">
                 <img
                   className='h-[250px] w-full'
