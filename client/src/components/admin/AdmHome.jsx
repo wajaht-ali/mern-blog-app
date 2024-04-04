@@ -40,7 +40,7 @@ const AdmHome = () => {
         {
           posts.map(item => {
             return (
-              <div key={item._id}>
+              <div key={item._id} className="w-full md:w-[400px] text-start">
                 <Link to={`/posts/${item.category}/${item._id}`} >
                   {/* <div className="border-2 border-black">
                     <img className="h-[180px] w-[200px]" src={`http://localhost:8000/Images/${item.file}`} alt="" />
@@ -68,7 +68,7 @@ const AdmHome = () => {
                       <p
                         aria-label="Category"
                         title="Visit the East"
-                        className="inline-block mb-3 text-2xl font-bold leading-5 transition-colors duration-200 hover:text-deep-purple-accent-700"
+                        className="inline-block mb-3 text-xl text-wrap md:text-2xl font-bold leading-5 transition-colors duration-200 hover:text-deep-purple-accent-700"
                       >
                         {item.title}
                       </p>
@@ -87,7 +87,7 @@ const AdmHome = () => {
                 <div>
                   <div className='mt-4'>
                     <button onClick={() => handleDeletePost(item._id)} className="bg-red-600 p-2 rounded text-white mx-2">Delete</button>
-                    <Link className="bg-green-500 p-2 rounded text-white px-4 mx-2" to={`posts/update-post/${item._id}`}>Edit</Link>
+                    <Link className="bg-green-500 p-2 rounded text-white px-4 mx-2" to={`/admin/update-post/${item._id}`}>Edit</Link>
                   </div>
                 </div>
               </div>

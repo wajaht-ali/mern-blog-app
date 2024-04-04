@@ -29,6 +29,7 @@ import YourPosts from "./components/Author/YourPosts.jsx";
 import Application from './components/pages/Application.jsx';
 import ApplicationForm from './components/admin/Application.jsx';
 import UpdatePost from "./components/Author/UpdatePost.jsx";
+import UpdatePostAdm from "./components/admin/UpdatePostAdm.jsx";
 
 
 export const AppContext = createContext();
@@ -79,11 +80,10 @@ function App() {
             <Route path="/admin" element={<Admin />}>
               <Route index path="" element={<AdmHome />} />
               <Route path="update-user/:id" element={<UpdateUser />} />
+              <Route path="update-post/:id" element={<UpdatePostAdm />} />
               <Route path="users" element={<Users />} />
               <Route path="contacts" element={<Contacts />} />
-
               <Route path="contacts/:id" element={<ApplicationForm />} />
-
               <Route path="create" element={<Create />} />
             </Route>
 

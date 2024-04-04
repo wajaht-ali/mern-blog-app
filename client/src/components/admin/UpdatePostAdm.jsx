@@ -6,7 +6,7 @@ import { AuthorContext } from '../Author.jsx';
 
 const API_KEY = import.meta.env.VITE_REACT_APP_API;
 
-const UpdatePost = () => {
+const UpdatePostAdm = () => {
   const authorId = useContext(AuthorContext);
   const { id } = useParams();
 
@@ -101,4 +101,4 @@ const UpdatePost = () => {
   )
 }
 
-export default UpdatePost
+export default UpdatePostAdm

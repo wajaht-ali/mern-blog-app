@@ -23,13 +23,18 @@ export const UpdatePostController = async (req, res) => {
   try {
     const { id } = req.params;
     // const {title, category, desc, creatorId, filename} = req.body;
-    const post = await PostModel.findByIdAndUpdate(id, {
-      title: req.body.title,
-      category: req.body.category,
-      desc: req.body.desc,
-      createdBy: req.body.creatorId,
-      file: req.file.filename,
-    }, {new: true});
+    // console.log(req.file);
+    const post = await PostModel.findByIdAndUpdate(
+      id,
+      {
+        title: req.body.title,
+        category: req.body.category,
+        desc: req.body.desc,
+        createdBy: req.body.creatorId,
+        file: req.file.filename,
+      },
+      { new: true }
+    );
     res.status(201).send({
       success: true,
       message: "Post updated successfully",

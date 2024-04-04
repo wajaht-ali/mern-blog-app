@@ -21,7 +21,7 @@ const Post = () => {
         axios.get(`${API_KEY}/posts/latest/` + id)
             .then((result) => {
                 console.log(result);
-                setPost(result.data);
+                setPost(result.data.post);
             })
             .catch((error) => {
                 console.log(error);
