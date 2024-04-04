@@ -4,14 +4,16 @@ import axios from 'axios'
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { MdNewspaper, MdOutlinePostAdd } from "react-icons/md";
 
+const API_KEY = import.meta.env.VITE_REACT_APP_API;
 export const AuthorContext = createContext();
+
 const Author = () => {
     const [authorId, setAuthorId] = useState("");
     const navigate = useNavigate();
 
     axios.defaults.withCredentials = true;
     useEffect(() => {
-        axios.get("http://localhost:8000/auth/verifyAuthor")
+        axios.get(`${API_KEY}/auth/verifyAuthor`)
             .then((res) => {
                 console.log(res);
                 setAuthorId(res.data.id);

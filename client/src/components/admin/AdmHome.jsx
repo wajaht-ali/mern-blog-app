@@ -3,21 +3,13 @@ import axios from "axios";
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
 
+const API_KEY = import.meta.env.VITE_REACT_APP_API;
+
 const AdmHome = () => {
-  // const [users, setUsers] = useState({});
   const [posts, setPosts] = useState([]);
-  // useEffect(() => {
-  //   axios.get("http://localhost:8000/auth/users")
-  //     .then((res) => {
-  //       // console.log(res);
-  //       setUsers(res.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     })
-  // }, [])
+
   useEffect(() => {
-    axios.get("http://localhost:8000/posts/getAllNews")
+    axios.get(`${API_KEY}/posts/getAllNews`)
       .then((res) => {
         console.log(res);
         setPosts(res.data);
@@ -30,7 +22,7 @@ const AdmHome = () => {
 
   const handleDeletePost = (id) => {
     axios.defaults.withCredentials = true;
-    axios.delete("http://localhost:8000/posts/deletePostById/" + id)
+    axios.delete(`${API_KEY}/posts/deletePostById/` + id)
       .then((res) => {
         console.log(res);
         if (res.data === "Deleted") {

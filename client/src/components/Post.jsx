@@ -7,6 +7,8 @@ import { FaRegClock } from "react-icons/fa6";
 import { AuthorContext } from './Author.jsx';
 import { AdminContext } from './Admin.jsx';
 
+const API_KEY = import.meta.env.VITE_REACT_APP_API;
+
 const Post = () => {
     const authorId = useContext(AuthorContext);
     const adminId = useContext(AdminContext);
@@ -16,7 +18,7 @@ const Post = () => {
     // console.log("AuthorId: ", authorId);
     useEffect(() => {
         axios.defaults.withCredentials = true;
-        axios.get("http://localhost:8000/posts/latest/" + id)
+        axios.get(`${API_KEY}/posts/latest/` + id)
             .then((result) => {
                 console.log(result);
                 setPost(result.data);

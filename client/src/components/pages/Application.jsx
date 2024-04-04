@@ -12,11 +12,12 @@ const Application = () => {
     const [checkbox, setCheckbox] = useState();
 
     const navigate = useNavigate();
+    const API_KEY = import.meta.env.VITE_REACT_APP_API;
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await axios.get("http://localhost:8000/apply/")
+                const res = await axios.get(`${API_KEY}/apply/`)
                 // console.log(res);
                 if (res.data.success) {
                     alert(res.data.message);
@@ -32,7 +33,7 @@ const Application = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post("http://localhost:8000/apply/", { name, email, description, facebook, twitter, checkbox });
+            const res = await axios.post(`${API_KEY}/apply/`, { name, email, description, facebook, twitter, checkbox });
             if (res.data.success) {
                 alert(res.data.message);
                 navigate('/');

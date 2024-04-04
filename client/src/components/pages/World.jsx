@@ -3,12 +3,14 @@ import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
+const API_KEY = import.meta.env.VITE_REACT_APP_API;
+
 const World = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     axios.defaults.withCredentials = true;
-    axios.get("http://localhost:8000/posts/getAllNews")
+    axios.get(`${API_KEY}/posts/getAllNews`)
       .then((result) => {
         console.log(result);
         setPosts(result.data);

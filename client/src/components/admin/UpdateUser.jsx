@@ -3,6 +3,8 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
+const API_KEY = import.meta.env.VITE_REACT_APP_API;
+
 const UpdateUser = () => {
     // const [user, setUser] = useState({});
     const [name, setName] = useState();
@@ -13,10 +15,8 @@ const UpdateUser = () => {
 
     axios.defaults.withCredentials = true;
     useEffect(() => {
-        axios.get("http://localhost:8000/admin/getUserById/" + id)
+        axios.get(`${API_KEY}/admin/getUserById/` + id)
             .then((res) => {
-                // console.log(res);
-                // setUser(res.data);
                 setName(res.data.name);
                 setEmail(res.data.email);
                 setRole(res.data.role);
@@ -28,7 +28,7 @@ const UpdateUser = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.put("http://localhost:8000/admin/updateUserById/" + id, { name, email, role })
+        axios.put(`${API_KEY}/admin/updateUserById/` + id, { name, email, role })
             .then((res) => {
               navigate("/admin/users");  
             })

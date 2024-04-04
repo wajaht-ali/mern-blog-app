@@ -2,14 +2,14 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
-import Table from './Table.jsx';
 
+const API_KEY = import.meta.env.VITE_REACT_APP_API;
 
 const Users = () => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:8000/admin/getAllUsers", { withCredentials: true })
+        axios.get(`${API_KEY}/admin/getAllUsers`, { withCredentials: true })
             .then((res) => {
                 // console.log(res);
                 setUsers(res.data);
@@ -20,7 +20,7 @@ const Users = () => {
     }, [])
 
     const handleDelete = (id) => {
-        axios.delete("http://localhost:8000/admin/deleteUser/" + id)
+        axios.delete(`${API_KEY}/admin/deleteUser/` + id)
             .then((res) => {
                 window.location.reload();
                 // if(res.data === "Success") {

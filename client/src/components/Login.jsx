@@ -4,6 +4,8 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.jpeg';
 
+const API_KEY = import.meta.env.VITE_REACT_APP_API;
+
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -12,7 +14,7 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         axios.defaults.withCredentials = true;
-        axios.post("http://localhost:8000/auth/loginUser", { email, password })
+        axios.post(`${API_KEY}/auth/loginUser`, { email, password })
             .then((res) => {
                 // console.log(res);
                 if (res.data.status === true) {

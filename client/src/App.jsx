@@ -28,13 +28,12 @@ import Author from "./components/Author.jsx";
 import YourPosts from "./components/Author/YourPosts.jsx";
 import Application from './components/pages/Application.jsx';
 import ApplicationForm from './components/admin/Application.jsx';
-
-//dotenv config
+import UpdatePost from "./components/Author/UpdatePost.jsx";
 
 
 export const AppContext = createContext();
-
 const API_KEY = import.meta.env.VITE_REACT_APP_API;
+
 function App() {
   const [user, setUser] = useState({});
 
@@ -76,7 +75,6 @@ function App() {
             <Route path="/world" element={<World />} />
             <Route path="/apply-here" element={<Application />} />
 
-
             {/* Admin Route */}
             <Route path="/admin" element={<Admin />}>
               <Route index path="" element={<AdmHome />} />
@@ -93,10 +91,10 @@ function App() {
             <Route path="/author" element={<Author />}>
               <Route path="" element={<YourPosts />} />
               <Route path="create-post" element={<CreatePost />} />
+              <Route path="update-post/:id" element={<UpdatePost />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
-
           <Footer />
         </BrowserRouter>
         <ToastContainer

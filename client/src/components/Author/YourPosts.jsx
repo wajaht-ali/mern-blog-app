@@ -4,13 +4,14 @@ import React, { useContext, useEffect, useState } from "react"
 import { Link } from "react-router-dom";
 import { AuthorContext } from "../Author";
 
-const YourPosts = () => {
+const API_KEY = import.meta.env.VITE_REACT_APP_API;
 
+const YourPosts = () => {
   const authorId = useContext(AuthorContext);
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8000/posts/getAllNews")
+    axios.get(`${API_KEY}/posts/getAllNews`)
       .then((res) => {
         // console.log(res);
         setPosts(res.data);
@@ -25,9 +26,9 @@ const YourPosts = () => {
   }
   const handleDeletePost = (id) => {
     axios.defaults.withCredentials = true;
-    axios.delete("http://localhost:8000/posts/deletePostById/" + id)
+    axios.delete(`${API_KEY}/posts/deletePostById/` + id)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         if (res.data === "Deleted") {
           window.location.href = "/author";
         }
@@ -48,7 +49,7 @@ const YourPosts = () => {
             :
             posts.filter(filterPosts).map(item => {
               return (
-                <div key={item._id}>
+                <div key={item._id} className="w-full md:w-[400px] text-start">
                   <Link to={`/posts/${item.category}/${item._id}`} >
                     {/* <div className="border-2 border-black">
                       <img className="h-[180px] w-[200px]" src={`http://localhost:8000/Images/${item.file}`} alt="" />
@@ -61,42 +62,35 @@ const YourPosts = () => {
                         src={`http://localhost:8000/Images/${item.file}`}
                         alt="myImage"
                       />
-                      <div className="p-5 border border-t-0">
+                      <div className="p-5 border border-t-0 text-start">
                         <p className="mb-3 text-xs font-semibold tracking-wide uppercase">
-                          <p
-
-                            className="transition-colors duration-200 text-blue-gray-900 hover:text-deep-purple-accent-700"
+                          <p className="transition-colors duration-200 text-blue-gray-900 hover:text-deep-purple-accent-700 text-start"
                             aria-label="Category"
-                            title="traveling"
-                          >
+                            title="traveling">
                             {item.category}
                           </p>
-                          <span className="text-gray-600">— {item.createdAt}</span>
+                          <span className="text-gray-600 text-start">— {item.createdAt}</span>
                         </p>
-                        <p
-                          aria-label="Category"
+                        <p aria-label="Category"
                           title="Visit the East"
-                          className="inline-block mb-3 text-2xl font-bold leading-5 transition-colors duration-200 hover:text-deep-purple-accent-700"
-                        >
+                          className="inline-block mb-3 text-xl md:text-2xl font-bold leading-5 transition-colors duration-200 hover:text-deep-purple-accent-700 text-wrap text-start">
                           {item.title}
                         </p>
-                        <p className="mb-2 text-gray-700">
+                        <p className="mb-2 text-gray-700 text-start">
                           {item.desc.slice(0, 30)}
                         </p>
-                        <p
-                          aria-label=""
-                          className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
-                        >
+                        <p aria-label=""
+                          className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800">
                           Learn more
                         </p>
                       </div>
                     </div>
                   </Link>
                   <div>
-                    
+
                     <div className='mt-4'>
                       <button onClick={() => handleDeletePost(item._id)} className="bg-red-600 p-2 rounded text-white mx-2">Delete</button>
-                      <Link className="bg-green-500 p-2 rounded text-white px-4 mx-2" to={`posts/update-post/${item._id}`}>Edit</Link>
+                      <Link className="bg-green-500 p-2 rounded text-white px-4 mx-2" to={`/author/update-post/${item._id}`}>Edit</Link>
                     </div>
                   </div>
                 </div>

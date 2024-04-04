@@ -3,7 +3,7 @@ import multer from "multer";
 import path from "path";
 import AllPosts from "../controllers/post_controller.js";
 import { CreatePostController } from "../controllers/create_post.js";
-import { GetPostById } from "../controllers/getPostById.js";
+import { GetPostById, UpdatePostController } from "../controllers/getPostById.js";
 import { deletePostById } from "../controllers/deletePost.js";
 // import { isSignedIn } from "../middlewares/requireSignIn.js";
 
@@ -26,6 +26,7 @@ const upload = multer({
 });
 
 router.get("/latest/:id", GetPostById);
+router.put("/update-post/:id", UpdatePostController);
 router.get("/getAllNews", AllPosts);
 router.post("/createPost", upload.single("file"), CreatePostController);
 router.delete("/deletePostById/:id", deletePostById);
