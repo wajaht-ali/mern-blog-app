@@ -18,7 +18,7 @@ const Post = () => {
     // console.log("AuthorId: ", authorId);
     useEffect(() => {
         axios.defaults.withCredentials = true;
-        axios.get(`${API_KEY}/posts/latest/` + id)
+        axios.get(`/api/posts/latest/` + id)
             .then((result) => {
                 console.log(result);
                 setPost(result.data.post);

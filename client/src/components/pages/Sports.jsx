@@ -10,7 +10,7 @@ const Sports = () => {
 
   useEffect(() => {
     axios.defaults.withCredentials = true;
-    axios.get(`${API_KEY}/posts/getAllNews`)
+    axios.get(`/api/posts/getAllNews`)
       .then((result) => {
         console.log(result);
         setPosts(result.data);

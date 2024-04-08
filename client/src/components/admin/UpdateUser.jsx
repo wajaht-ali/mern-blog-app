@@ -15,7 +15,7 @@ const UpdateUser = () => {
 
     axios.defaults.withCredentials = true;
     useEffect(() => {
-        axios.get(`${API_KEY}/admin/getUserById/` + id)
+        axios.get(`/api/admin/getUserById/` + id)
             .then((res) => {
                 setName(res.data.name);
                 setEmail(res.data.email);
@@ -28,7 +28,7 @@ const UpdateUser = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.put(`${API_KEY}/admin/updateUserById/` + id, { name, email, role })
+        axios.put(`/api/admin/updateUserById/` + id, { name, email, role })
             .then((res) => {
               navigate("/admin/users");  
             })

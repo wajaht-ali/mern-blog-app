@@ -14,7 +14,7 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         axios.defaults.withCredentials = true;
-        axios.post(`${API_KEY}/auth/loginUser`, { email, password })
+        axios.post(`/api/auth/loginUser`, { email, password })
             .then((res) => {
                 // console.log(res);
                 if (res.data.status === true) {

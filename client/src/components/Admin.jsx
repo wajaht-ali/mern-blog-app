@@ -14,7 +14,7 @@ const Admin = () => {
     const navigate = useNavigate();
     axios.defaults.withCredentials = true;
     useEffect(() => {
-        axios.get(`${API_KEY}/auth/verifyAdmin`)
+        axios.get(`/api/auth/verifyAdmin`)
             .then((res) => {
                 console.log(res);
                 setAdminId(res.data.id);

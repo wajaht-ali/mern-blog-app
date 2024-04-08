@@ -17,7 +17,7 @@ const Navbar = () => {
     setNav(!nav);
   }
   const handleLogout = () => {
-    axios.get("http://localhost:8000/auth/logout")
+    axios.get("/api/auth/logout")
       .then((res) => {
         console.log(res);
         if (res.data === "Success") {

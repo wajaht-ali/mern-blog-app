@@ -19,7 +19,7 @@ const db_URI = process.env.db_URI;
 
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
+    origin: ["*"],
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
   })
@@ -30,11 +30,11 @@ app.use(express.static("assets"));
 
 mongoose.connect(db_URI);
 
-app.use("/auth", UserRouter);
-app.use("/posts", PostRouter);
-app.use("/apply", requireSignIn, ApplyRouter);
-app.use("/admin", AdminRouter);
-app.use("/chat", chatRouter);
+app.use("/api/auth", UserRouter);
+app.use("/api/posts", PostRouter);
+app.use("/api/apply", requireSignIn, ApplyRouter);
+app.use("/api/admin", AdminRouter);
+app.use("/api/chat", chatRouter);
 
 app.listen(PORT, (req, res) => {
   console.log(`Server is running on ${PORT}`);

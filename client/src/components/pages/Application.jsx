@@ -17,7 +17,7 @@ const Application = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await axios.get(`${API_KEY}/apply/`)
+                const res = await axios.get(`/api/apply/`)
                 // console.log(res);
                 if (res.data.success) {
                     alert(res.data.message);
@@ -33,7 +33,7 @@ const Application = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post(`${API_KEY}/apply/`, { name, email, description, facebook, twitter, checkbox });
+            const res = await axios.post(`/api/apply/`, { name, email, description, facebook, twitter, checkbox });
             if (res.data.success) {
                 alert(res.data.message);
                 navigate('/');

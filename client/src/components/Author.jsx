@@ -13,7 +13,7 @@ const Author = () => {
 
     axios.defaults.withCredentials = true;
     useEffect(() => {
-        axios.get(`${API_KEY}/auth/verifyAuthor`)
+        axios.get(`/api/auth/verifyAuthor`)
             .then((res) => {
                 console.log(res);
                 setAuthorId(res.data.id);

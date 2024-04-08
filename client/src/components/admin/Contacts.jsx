@@ -10,7 +10,7 @@ const Contacts = () => {
   const [cards, setCards] = useState([]);
   useEffect(() => {
     const fetchCards = async () => {
-      const res = await axios.get(`${API_KEY}/admin/applications`);
+      const res = await axios.get(`/api/admin/applications`);
       if (res.data.success) {
         setCards(res.data.applications);
       }

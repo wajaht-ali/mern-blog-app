@@ -11,7 +11,7 @@ const YourPosts = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    axios.get(`${API_KEY}/posts/getAllNews`)
+    axios.get(`/api/posts/getAllNews`)
       .then((res) => {
         // console.log(res);
         setPosts(res.data);
@@ -26,7 +26,7 @@ const YourPosts = () => {
   }
   const handleDeletePost = (id) => {
     axios.defaults.withCredentials = true;
-    axios.delete(`${API_KEY}/posts/deletePostById/` + id)
+    axios.delete(`/api/posts/deletePostById/` + id)
       .then((res) => {
         // console.log(res);
         if (res.data === "Deleted") {
