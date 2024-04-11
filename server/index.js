@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
+import path from "path";
 import cookieParser from "cookie-parser";
 import { UserRouter } from "./routes/user.js";
 import { PostRouter } from "./routes/posts.js";
@@ -9,7 +10,6 @@ import { AdminRouter } from "./routes/admin.js";
 import { ApplyRouter } from "./routes/apply.js";
 import { requireSignIn } from "./middlewares/requireSignIn.js";
 import { chatRouter } from "./routes/chat.js";
-
 
 dotenv.config();
 
@@ -29,6 +29,21 @@ app.use(cookieParser());
 app.use(express.static("assets"));
 
 mongoose.connect(db_URI);
+
+// -----------Deployment section ---------------
+// const __dirname1 = path.resolve();
+// if (process.env.ENV_MODE === "production") {
+//   app.use(express.static(path.join(__dirname1, "/client/dist")));
+
+//   app.get("*", (req, res) => {
+//     res.sendFile(path.resolve(__dirname1, "client", "dist", "index.html"));
+//   });
+// } else {
+//   app.post("/", (req, res) => {
+//     res.json("App is on fire!!!");
+//   });
+// }
+// -----------Deployment section ---------------
 
 app.use("/api/auth", UserRouter);
 app.use("/api/posts", PostRouter);
