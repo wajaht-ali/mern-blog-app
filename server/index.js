@@ -10,6 +10,7 @@ import { AdminRouter } from "./routes/admin.js";
 import { ApplyRouter } from "./routes/apply.js";
 import { requireSignIn } from "./middlewares/requireSignIn.js";
 import { chatRouter } from "./routes/chat.js";
+import connectDB from "./config/db.js";
 
 dotenv.config();
 
@@ -28,7 +29,8 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.static("assets"));
 
-mongoose.connect(db_URI);
+// mongoose.connect(db_URI);
+connectDB();
 
 // -----------Deployment section ---------------
 // const __dirname1 = path.resolve();
