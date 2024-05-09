@@ -33,18 +33,10 @@ app.use(express.static("assets"));
 connectDB();
 
 // -----------Deployment section ---------------
-// const __dirname1 = path.resolve();
-// if (process.env.ENV_MODE === "production") {
-//   app.use(express.static(path.join(__dirname1, "/client/dist")));
-
-//   app.get("*", (req, res) => {
-//     res.sendFile(path.resolve(__dirname1, "client", "dist", "index.html"));
-//   });
-// } else {
-//   app.post("/", (req, res) => {
-//     res.json("App is on fire!!!");
-//   });
-// }
+app.use(express.static("./client/dist"));
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
+});
 // -----------Deployment section ---------------
 
 app.use("/api/auth", UserRouter);

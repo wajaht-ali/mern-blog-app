@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api": "https://the-news-app-ten.vercel.app/",
+      "/api": "https://the-news-app-ten.vercel.app",
     },
   },
 });
