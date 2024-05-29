@@ -109,25 +109,25 @@ Contributions are welcome! Please fork the repository and create a pull request 
 
 ## Screenshots
 - Home Page
-![Home Page](../blog-app/client/src/assets/blog-app/home.png)
+![Home Page](./client/src/assets/blog-app/home.png)
 
 - Admin Home Page
-![Home Page](../blog-app/client/src/assets/blog-app/admin_all_posts.png)
+![Home Page](./client/src/assets/blog-app/admin_all_posts.png)
 
 - Create Post 
-![Home Page](../blog-app/client/src/assets/blog-app/update_post.png)
+![Home Page](./client/src/assets/blog-app/update_post.png)
 
 - All Users
-![Home Page](../blog-app/client/src/assets/blog-app/all_users.png)
+![Home Page](./client/src/assets/blog-app/all_users.png)
 
 - Update User
-![Home Page](../blog-app/client/src/assets/blog-app/update_user.png)
+![Home Page](./client/src/assets/blog-app/update_user.png)
 
 - Authorship Application form
-![Home Page](../blog-app/client/src/assets/blog-app/join_us_as_author.png)
+![Home Page](./client/src/assets/blog-app/join_us_as_author.png)
 
 - Admin's Applications Inbox
-![Home Page](../blog-app/client/src/assets/blog-app/applications_inbox.png)
+![Home Page](./client/src/assets/blog-app/applications_inbox.png)
 
 
 ## Contact
