@@ -33,10 +33,10 @@ app.use(express.static("assets"));
 connectDB();
 
 // -----------Deployment section ---------------
-app.use(express.static("./client/dist"));
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
-});
+// app.use(express.static("./client/dist"));
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
+// });
 // -----------Deployment section ---------------
 
 app.use("/api/auth", UserRouter);

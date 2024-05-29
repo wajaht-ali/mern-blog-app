@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { FaFacebookSquare, FaTwitterSquare, FaInstagramSquare, FaYoutubeSquare } from "react-icons/fa";
 import { AiFillLinkedin } from "react-icons/ai";
-import logo from "../assets/logo.jpeg";
+import logo from "../assets/logoImg1.png";
 
 const Footer = () => {
     return (
@@ -14,14 +14,14 @@ const Footer = () => {
                         title="Company"
                         className="inline-flex items-center"
                     >
-                        <img width={"80px"} height={"100px"} src={logo} alt="imgLogo" />
-                        <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
+                        <img width={"100px"} height={"100px"} src={logo} alt="imgLogo" />
+                        {/* <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
                             The News
-                        </span>
+                        </span> */}
                     </Link>
                     <div className="mt-6 lg:max-w-sm">
                         <p className="text-sm text-gray-800">
-                            The NEWS is the most athuntic platform for the daily updates on lifestyle, events, and current affairs all around the world.
+                            BlogByte is the most athuntic platform for the daily updates on lifestyle, events, and current affairs all around the world.
                         </p>
                         <p className="mt-4 text-sm text-gray-800">
                             And we earned this trust by delivering content with proofs in a most responsible way ever.

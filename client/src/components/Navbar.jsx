@@ -5,7 +5,7 @@ import { MdLogout } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import { AppContext } from '../App';
 import axios from 'axios';
-import logo from '../assets/THE_NEWS-removebg.png';
+import logo from "../assets/logoImg1.png";
 
 const Navbar = () => {
   const user = useContext(AppContext);
@@ -31,7 +31,7 @@ const Navbar = () => {
   return (
     <div className='sticky top-0 w-full bg-black text-white flex flex-row items-center justify-between md:justify-around px-4 md:px-0 py-3 z-50'>
       <div className=''>
-        <Link to={"/"} className='py-2 font-semibold text-md uppercase border-b-2 border-[#149EDC] transition-all'><img src={logo} width={"60px"} height={"80px"} alt="logImg" /></Link>
+        <Link to={"/"} className='py-2 font-semibold text-md uppercase border-b-2 border-[#149EDC] transition-all'><img src={logo} width={"90px"} height={"90px"} alt="logImg" /></Link>
       </div>
 
       <div className="nav_items hidden md:block">
