@@ -1,6 +1,6 @@
 # Blogging Web Application
 
-## Table of Contents
+## 📖 Table of Contents
 
 - [Introduction](#introduction)
 - [Features](#features)
@@ -12,18 +12,18 @@
 - [Contact](#contact)
 - [Screenshots](#screenshots)
 
-## Introduction
+## 📃 Introduction
 
 This is a blogging web application built using the MERN stack (MongoDB, Express, React, Node.js). It allows users to read blogs created by other users, as well as create and manage their own blogs.
 
-## Features
+## 💡 Features
 
 - User authentication and authorization
 - Create, read, update, and delete (CRUD) blog posts
 - Responsive design for mobile and desktop
 - User can join as a reader, but can also apply to become an author, for more upgraded features like creating blogs and accessing other perks.
 
-## Technologies Used
+## ⚙️ Technologies Used
 
 - **Frontend**: React, Context API, React Router, Axios
 - **Backend**: Node.js, Express.js
@@ -32,7 +32,7 @@ This is a blogging web application built using the MERN stack (MongoDB, Express,
 - **Styling**: CSS, TailwindCSS
 - **Development Tools**: Nodemon, Webpack
 
-## Installation
+## 📩 Installation
 
 To run this project locally, follow these steps:
 
@@ -72,11 +72,11 @@ To run this project locally, follow these steps:
     npm start
     ```
 
-## Usage
+## 🔦 Usage
 
 Once the application is running, open your browser and navigate to `http://localhost:8000` to start using the blog application.
 
-## Project Structure
+## 🗃️ Project Structure
 
 ```plaintext
 .
@@ -97,7 +97,7 @@ Once the application is running, open your browser and navigate to `http://local
 └── README.md
 ```
 
-## Contributing
+## ➕ Contributing
 Contributions are welcome! Please fork the repository and create a pull request with your changes.
 
 - Fork the repository
@@ -107,7 +107,7 @@ Contributions are welcome! Please fork the repository and create a pull request 
 - Create a new Pull Request
 
 
-## Screenshots
+## 📷 Screenshots
 - Home Page
 ![Home Page](./client/src/assets/blog-app/home.png)
 
@@ -130,5 +130,5 @@ Contributions are welcome! Please fork the repository and create a pull request 
 ![Home Page](./client/src/assets/blog-app/applications_inbox.png)
 
 
-## Contact
+## 📨 Contact
 If you have any questions or suggestions, feel free to contact me at contact.chwajahat@gmail.com.
