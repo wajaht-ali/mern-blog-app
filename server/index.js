@@ -20,7 +20,7 @@ const db_URI = process.env.db_URI;
 
 app.use(
   cors({
-    origin: ["*"],
+    origin: ["https://mern-blog-app-ui.vercel.app"],
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
   })
