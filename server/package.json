@@ -5,8 +5,15 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+<<<<<<< HEAD
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/index.js"
+=======
+    "scripts": {
+  "start": "node index.js",
+  "build": "npm install && npm install vite && vite build"
+}
+>>>>>>> c5144d8220fa29ed016bd963341dfc5a26716886
   },
   "keywords": [],
   "author": "",

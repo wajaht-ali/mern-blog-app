@@ -45,6 +45,11 @@ app.use("/api/apply", requireSignIn, ApplyRouter);
 app.use("/api/admin", AdminRouter);
 app.use("/api/chat", chatRouter);
 
+//testing route
+app.get("/", (req, res) => {
+  res.send("Code deployed successfully!");
+});
+
 app.listen(PORT, (req, res) => {
   console.log(`Server is running on ${PORT}`);
 });
