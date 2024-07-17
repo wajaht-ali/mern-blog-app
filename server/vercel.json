@@ -3,13 +3,7 @@
    "builds": [
      {
        "src": "server/index.js",
-       "use": "@vercel/node",
-       "config": {
-         "installCommand": "npm install",
-         "scripts": {
-           "build": "npm install vite && vite build"
-         }
-       }
+       "use": "@vercel/node"
      }
    ]
  }
