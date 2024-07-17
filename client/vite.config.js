@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api": "https://mern-blog-app-api-gamma.vercel.app",
+      "/api": "https://mern-blog-app-api-rho.vercel.app",
     },
   },
 });
