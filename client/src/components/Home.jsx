@@ -10,14 +10,14 @@ import bgImg2 from '../assets/p0836dcl.jpg';
 import Newsletter from './Newsletter.jsx';
 import AuthorSteps from './AuthorSteps.jsx';
 
-const API_KEY = import.meta.env.VITE_REACT_APP_URI;
+const VITE_API_KEY = import.meta.env.VITE_REACT_APP_URI;
 const Home = () => {
   const [posts, setPosts] = useState([]);
   const navigate = useNavigate();
-
+  console.log(VITE_API_KEY);
   useEffect(() => {
     axios.defaults.withCredentials = true;
-    axios.get(`${API_KEY}/api/posts/getAllNews`)
+    axios.get(`${VITE_API_KEY}/api/posts/getAllNews`)
       .then((result) => {
         // console.log(result);
         setPosts(result.data);
@@ -63,7 +63,7 @@ const Home = () => {
               posts.filter(latestNews).map((item) => {
                 return (
                   <Link key={item._id} to={`posts/${item.category}/${item._id}`}>
-                    <div style={{ backgroundImage: `url(${API_KEY}/Images/${item.file})` }} className='relative w-full h-[410px] p-2 bg-center bg-no-repeat bg-cover flex flex-col justify-end'>
+                    <div style={{ backgroundImage: `url(${VITE_API_KEY}/Images/${item.file})` }} className='relative w-full h-[410px] p-2 bg-center bg-no-repeat bg-cover flex flex-col justify-end'>
                       <div className="absolute inset-0" style={{ zIndex: '1' }}>
                         <div className='absolute inset-0 bg-black opacity-30'></div>
                       </div>
@@ -82,7 +82,7 @@ const Home = () => {
             posts.slice(1, 5).map((item) => {
               return (
                 <Link key={item._id} to={`posts/${item.category}/${item._id}`}>
-                  <div style={{ backgroundImage: `url(${API_KEY}/Images/${item.file})` }} className='relative w-full md:w-[310px] h-auto md:h-[200px] p-2 bg-center bg-no-repeat bg-cover flex flex-col justify-end' key={posts.id}>
+                  <div style={{ backgroundImage: `url(${VITE_API_KEY}/Images/${item.file})` }} className='relative w-full md:w-[310px] h-auto md:h-[200px] p-2 bg-center bg-no-repeat bg-cover flex flex-col justify-end' key={posts.id}>
                     <div className="absolute inset-0" style={{ zIndex: '1' }}>
                       <div className='absolute inset-0 bg-black opacity-30'></div>
                     </div>
@@ -105,7 +105,7 @@ const Home = () => {
         {
           posts.filter(filterNews).slice(0, 3).map((item) => {
             return <Link key={item._id} to={`posts/${item.category}/${item._id}`}>
-              {/* <div style={{ backgroundImage: `url(${API_KEY}/Images/${item.file})` }} className='relative h-[180px] w-[300px] p-2 bg-center bg-no-repeat bg-cover flex flex-col justify-end' key={posts.id}>
+              {/* <div style={{ backgroundImage: `url(${VITE_API_KEY}/Images/${item.file})` }} className='relative h-[180px] w-[300px] p-2 bg-center bg-no-repeat bg-cover flex flex-col justify-end' key={posts.id}>
                 <div className="absolute inset-0" style={{ zIndex: '1' }}>
                   <div className='absolute inset-0 bg-black opacity-30'></div>
                 </div>
@@ -114,7 +114,7 @@ const Home = () => {
               </div> */}
               <div className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-gray-200 shadow-lg">
                 <img
-                  src={`${API_KEY}/Images/${item.file}`}
+                  src={`${VITE_API_KEY}/Images/${item.file}`}
                   alt="myImage"
                 />
                 <div className="p-5 border border-t-0">
@@ -160,7 +160,7 @@ const Home = () => {
         {
           posts.filter(filterBusiness).slice(0, 3).map((item) => {
             return <Link key={item._id} to={`posts/${item.category}/${item._id}`}>
-              {/* <div style={{ backgroundImage: `url(${API_KEY}/Images/${item.file})` }} className='relative h-[180px] w-[300px] p-2 bg-center bg-no-repeat bg-cover flex flex-col justify-end' key={posts.id}>
+              {/* <div style={{ backgroundImage: `url(${VITE_API_KEY}/Images/${item.file})` }} className='relative h-[180px] w-[300px] p-2 bg-center bg-no-repeat bg-cover flex flex-col justify-end' key={posts.id}>
                 <div className="absolute inset-0" style={{ zIndex: '1' }}>
                   <div className='absolute inset-0 bg-black opacity-30'></div>
                 </div>
@@ -170,7 +170,7 @@ const Home = () => {
               <div className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-gray-600 shadow-md">
                 <img
                   className='w-full'
-                  src={`${API_KEY}/Images/${item.file}`}
+                  src={`${VITE_API_KEY}/Images/${item.file}`}
                   alt="myImage"
                 />
                 <div className="p-5 border border-t-0">
@@ -216,7 +216,7 @@ const Home = () => {
         {
           posts.filter(filterSports).slice(0, 3).map((item) => {
             return <Link key={item._id} to={`posts/${item.category}/${item._id}`}>
-              {/* <div style={{ backgroundImage: `url(${API_KEY}/Images/${item.file})` }} className='relative h-[180px] w-[300px] p-2 bg-center bg-no-repeat bg-cover flex flex-col justify-end' key={posts.id}>
+              {/* <div style={{ backgroundImage: `url(${VITE_API_KEY}/Images/${item.file})` }} className='relative h-[180px] w-[300px] p-2 bg-center bg-no-repeat bg-cover flex flex-col justify-end' key={posts.id}>
                 <div className="absolute inset-0" style={{ zIndex: '1' }}>
                   <div className='absolute inset-0 bg-black opacity-30'></div>
                 </div>
@@ -225,7 +225,7 @@ const Home = () => {
               </div> */}
               <div className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-gray-200 shadow-lg">
                 <img
-                  src={`${API_KEY}/Images/${item.file}`}
+                  src={`${VITE_API_KEY}/Images/${item.file}`}
                   alt="myImage"
                 />
                 <div className="p-5 border border-t-0">
@@ -271,7 +271,7 @@ const Home = () => {
         {
           posts.filter(filterWorld).slice(0, 3).map((item) => {
             return <Link key={item._id} to={`posts/${item.category}/${item._id}`}>
-              {/* <div style={{ backgroundImage: `url(${API_KEY}/Images/${item.file})` }} className='relative h-[180px] w-[300px] p-2 bg-center bg-no-repeat bg-cover flex flex-col justify-end' key={posts.id}>
+              {/* <div style={{ backgroundImage: `url(${VITE_API_KEY}/Images/${item.file})` }} className='relative h-[180px] w-[300px] p-2 bg-center bg-no-repeat bg-cover flex flex-col justify-end' key={posts.id}>
                 <div className="absolute inset-0" style={{ zIndex: '1' }}>
                   <div className='absolute inset-0 bg-black opacity-30'></div>
                 </div>
@@ -281,7 +281,7 @@ const Home = () => {
               <div className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-gray-200 shadow-sm ">
                 <img
                   className='w-full'
-                  src={`${API_KEY}/Images/${item.file}`}
+                  src={`${VITE_API_KEY}/Images/${item.file}`}
                   alt="myImage"
                 />
                 <div className="p-5 border border-t-0">
