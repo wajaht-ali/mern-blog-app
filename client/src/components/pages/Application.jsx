@@ -3,6 +3,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
+const API_KEY = import.meta.env.VITE_REACT_APP_URI;
 const Application = () => {
     const [name, setName] = useState();
     const [email, setEmail] = useState();
@@ -17,7 +18,7 @@ const Application = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await axios.get(`/api/apply/`)
+                const res = await axios.get(`${API_KEY}/api/apply/`)
                 // console.log(res);
                 if (res.data.success) {
                     alert(res.data.message);
@@ -33,7 +34,7 @@ const Application = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post(`/api/apply/`, { name, email, description, facebook, twitter, checkbox });
+            const res = await axios.post(`${API_KEY}/api/apply/`, { name, email, description, facebook, twitter, checkbox });
             if (res.data.success) {
                 alert(res.data.message);
                 navigate('/');

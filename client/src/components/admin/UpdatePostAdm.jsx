@@ -4,8 +4,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthorContext } from '../Author.jsx';
 
-const API_KEY = import.meta.env.VITE_REACT_APP_API;
-
+const API_KEY = import.meta.env.VITE_REACT_APP_URI;
 const UpdatePostAdm = () => {
   const authorId = useContext(AuthorContext);
   const { id } = useParams();
@@ -28,8 +27,7 @@ const UpdatePostAdm = () => {
     try {
       const fetchPost = async () => {
         axios.defaults.withCredentials = true;
-        const res = await axios.get(`/api/posts/latest/` + id);
-        console.log(res);
+        const res = await axios.get(`${API_KEY}/api/posts/latest/` + id);
         if (res.data.success) {
           // setPost(res.data.post);
           setTitle(res.data.post.title);
@@ -51,7 +49,7 @@ const UpdatePostAdm = () => {
     e.preventDefault();
     try {
       axios.defaults.withCredentials = true;
-      const res = await axios.put(`/api/posts/update-post/` + id, formdata)
+      const res = await axios.put(`${API_KEY}/api/posts/update-post/` + id, formdata)
       if (res.data.success) {
         alert("Post updated sucessfully!");
         setTitle("");

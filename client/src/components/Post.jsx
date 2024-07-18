@@ -7,8 +7,7 @@ import { FaRegClock } from "react-icons/fa6";
 import { AuthorContext } from './Author.jsx';
 import { AdminContext } from './Admin.jsx';
 
-const API_KEY = import.meta.env.VITE_REACT_APP_API;
-
+const API_KEY = import.meta.env.VITE_REACT_APP_URI;
 const Post = () => {
     const authorId = useContext(AuthorContext);
     const adminId = useContext(AdminContext);
@@ -18,7 +17,7 @@ const Post = () => {
     // console.log("AuthorId: ", authorId);
     useEffect(() => {
         axios.defaults.withCredentials = true;
-        axios.get(`/api/posts/latest/` + id)
+        axios.get(`${API_KEY}/api/posts/latest/` + id)
             .then((result) => {
                 console.log(result);
                 setPost(result.data.post);
@@ -32,7 +31,7 @@ const Post = () => {
         <div className='h-auto w-full flex flex-col items-center mx-auto border-black border-2 p-4'>
             <div className='mt-8 w-full h-full bg-gray-300 box-content'>
                 <h1 className='text-xl md:text-4xl mt-3 font-bold'>{post.title}</h1>
-                <img className='my-4 w-full md:w-[500px] md:h-[400px]' src={`http://localhost:8000/Images/${post.file}`} alt="myImage" />
+                <img className='my-4 w-full md:w-[500px] md:h-[400px]' src={`${API_KEY}/Images/${post.file}`} alt="myImage" />
                 <p className='uppercase font-semibold'>{post.category}</p>
                 <p className='flex flex-row items-center '><FaRegClock size={15} className='mx-2' />{post.createdAt}</p>
                 <p className='mt-4 text-lg'>{post.desc}</p>

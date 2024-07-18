@@ -4,13 +4,13 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import img from "../../assets/message.jpeg";
 
-const API_KEY = import.meta.env.VITE_REACT_APP_API;
+const API_KEY = import.meta.env.VITE_REACT_APP_URI;
 
 const Contacts = () => {
   const [cards, setCards] = useState([]);
   useEffect(() => {
     const fetchCards = async () => {
-      const res = await axios.get(`/api/admin/applications`);
+      const res = await axios.get(`${API_KEY}/api/admin/applications`);
       if (res.data.success) {
         setCards(res.data.applications);
       }

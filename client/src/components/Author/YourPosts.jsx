@@ -4,14 +4,13 @@ import React, { useContext, useEffect, useState } from "react"
 import { Link } from "react-router-dom";
 import { AuthorContext } from "../Author";
 
-const API_KEY = import.meta.env.VITE_REACT_APP_API;
-
+const API_KEY = import.meta.env.VITE_REACT_APP_URI;
 const YourPosts = () => {
   const authorId = useContext(AuthorContext);
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    axios.get(`/api/posts/getAllNews`)
+    axios.get(`${API_KEY}/api/posts/getAllNews`)
       .then((res) => {
         // console.log(res);
         setPosts(res.data);
@@ -26,7 +25,7 @@ const YourPosts = () => {
   }
   const handleDeletePost = (id) => {
     axios.defaults.withCredentials = true;
-    axios.delete(`/api/posts/deletePostById/` + id)
+    axios.delete(`${API_KEY}/api/posts/deletePostById/` + id)
       .then((res) => {
         // console.log(res);
         if (res.data === "Deleted") {
@@ -59,7 +58,7 @@ const YourPosts = () => {
                     <div className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-gray-200 shadow-lg">
                       <img
                         className='h-[250px] w-full'
-                        src={`http://localhost:8000/Images/${item.file}`}
+                        src={`${API_KEY}/Images/${item.file}`}
                         alt="myImage"
                       />
                       <div className="p-5 border border-t-0 text-start">

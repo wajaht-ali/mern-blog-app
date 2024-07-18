@@ -4,14 +4,14 @@ import { CiCalendarDate } from "react-icons/ci";
 import { useState } from "react";
 import axios from "axios";
 
-
+const API_KEY = import.meta.env.VITE_REACT_APP_URI;
 const Newsletter = () => {
   const [email, setEmail] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:8000/auth/newsletter", { email });
+      const res = await axios.post(`${API_KEY}/auth/newsletter`, { email });
       if (res.data.success) {
         alert(res.data.message);
         setEmail('');

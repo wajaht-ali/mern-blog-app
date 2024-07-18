@@ -4,8 +4,7 @@ import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { AuthorContext } from '../Author.jsx';
 
-const API_KEY = import.meta.env.VITE_REACT_APP_API;
-
+const API_KEY = import.meta.env.VITE_REACT_APP_URI;
 const Create = () => {
   const authorId  = useContext(AuthorContext);
 
@@ -25,7 +24,7 @@ const Create = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.defaults.withCredentials = true;
-    axios.post(`/api/posts/createPost`, formdata)
+    axios.post(`${API_KEY}/api/posts/createPost`, formdata)
       .then((res) => {
         // console.log(res);
         navigate("/author");

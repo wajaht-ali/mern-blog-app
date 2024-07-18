@@ -4,7 +4,7 @@ import axios from 'axios'
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { MdNewspaper, MdOutlinePostAdd } from "react-icons/md";
 
-const API_KEY = import.meta.env.VITE_REACT_APP_API;
+const API_KEY = import.meta.env.VITE_REACT_APP_URI;
 export const AuthorContext = createContext();
 
 const Author = () => {
@@ -13,7 +13,7 @@ const Author = () => {
 
     axios.defaults.withCredentials = true;
     useEffect(() => {
-        axios.get(`/api/auth/verifyAuthor`)
+        axios.get(`${API_KEY}/api/auth/verifyAuthor`)
             .then((res) => {
                 console.log(res);
                 setAuthorId(res.data.id);

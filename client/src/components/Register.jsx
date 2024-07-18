@@ -4,8 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
 import logo from "../assets/logoImg1.png";
 
-const API_KEY = import.meta.env.VITE_REACT_APP_API;
-
+const API_KEY = import.meta.env.VITE_REACT_APP_URI;
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -16,7 +15,7 @@ const Register = () => {
     e.preventDefault();
 
     axios.defaults.withCredentials = true;
-    axios.post(`/api/auth/registerUser`, { name, email, password })
+    axios.post(`${API_KEY}/api/auth/registerUser`, { name, email, password })
       .then((response) => {
         console.log(response);
         if (response.data === "Success") {

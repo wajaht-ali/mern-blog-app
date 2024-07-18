@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom';
 import { FaRegClock } from "react-icons/fa6";
 
-const API_KEY = import.meta.env.VITE_REACT_APP_API;
+const API_KEY = import.meta.env.VITE_REACT_APP_URI;
 
 const Application = () => {
     const [application, setApplication] = useState([]);
@@ -12,7 +12,7 @@ const Application = () => {
     useEffect(() => {
         try {
             const fetchData = async () => {
-                const res = await axios.get(`/api/admin/applications/` + id);
+                const res = await axios.get(`${API_KEY}/api/admin/applications/` + id);
                 // console.log(res);
                 if (res.data.success) {
                     setApplication(res.data.app);

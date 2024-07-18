@@ -7,16 +7,14 @@ import { MdCreateNewFolder } from "react-icons/md";
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 
 export const AdminContext = createContext();
-const API_KEY = import.meta.env.VITE_REACT_APP_API;
-
+const API_KEY = import.meta.env.VITE_REACT_APP_URI;
 const Admin = () => {
     const [adminId, setAdminId] = useState();
     const navigate = useNavigate();
     axios.defaults.withCredentials = true;
     useEffect(() => {
-        axios.get(`/api/auth/verifyAdmin`)
+        axios.get(`${API_KEY}/api/auth/verifyAdmin`)
             .then((res) => {
-                console.log(res);
                 setAdminId(res.data.id);
                 if (res.data.message !== "Success") {
                     // setSuc("Succeded!");

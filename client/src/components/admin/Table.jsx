@@ -4,10 +4,11 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import DataTable from "react-data-table-component";
 
+const API_KEY = import.meta.env.VITE_REACT_APP_URI;
 const Table = () => {
     const [users, setUsers] = useState([]);
     useEffect(() => {
-        axios.get("http://localhost:8000/admin/getAllUsers", { withCredentials: true })
+        axios.get(`${API_KEY}/admin/getAllUsers`, { withCredentials: true })
             .then((res) => {
                 // console.log(res);
                 setUsers(res.data);
@@ -17,7 +18,7 @@ const Table = () => {
             })
     }, [])
     const handleDelete = (id) => {
-        axios.delete("http://localhost:8000/admin/deleteUser/" + id)
+        axios.delete(`${API_KEY}/admin/deleteUser/` + id)
             .then((res) => {
                 window.location.reload();
                 // if(res.data === "Success") {

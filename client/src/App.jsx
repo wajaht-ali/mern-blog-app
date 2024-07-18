@@ -33,14 +33,13 @@ import UpdatePostAdm from "./components/admin/UpdatePostAdm.jsx";
 
 
 export const AppContext = createContext();
-const API_KEY = import.meta.env.VITE_REACT_APP_API;
-
+const API_KEY = import.meta.env.VITE_REACT_APP_URI;
 function App() {
   const [user, setUser] = useState({});
 
   useEffect(() => {
     axios.defaults.withCredentials = true;
-    axios.get(`/api/auth`)
+    axios.get(`${API_KEY}/api/auth`)
       .then((res) => {
         // console.log(res);
         setUser(res.data);

@@ -7,6 +7,7 @@ import { AppContext } from '../App';
 import axios from 'axios';
 import logo from "../assets/logoImg1.png";
 
+const API_KEY = import.meta.env.VITE_REACT_APP_URI;
 const Navbar = () => {
   const user = useContext(AppContext);
   const [nav, setNav] = useState(false);
@@ -17,7 +18,7 @@ const Navbar = () => {
     setNav(!nav);
   }
   const handleLogout = () => {
-    axios.get("/api/auth/logout")
+    axios.get(`${API_KEY}/api/auth/logout`)
       .then((res) => {
         console.log(res);
         if (res.data === "Success") {

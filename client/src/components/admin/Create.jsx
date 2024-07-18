@@ -5,8 +5,7 @@ import { useNavigate } from 'react-router-dom';
 // import { AdminContext } from '../Admin.js';
 import { AdminContext } from '../Admin.jsx';
 
-const API_KEY = import.meta.env.VITE_REACT_APP_API;
-
+const API_KEY = import.meta.env.VITE_REACT_APP_URI;
 const Create = () => {
   const [title, setTitle] = useState();
   const [category, setCategory] = useState();
@@ -25,7 +24,7 @@ const Create = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.defaults.withCredentials = true;
-    axios.post(`/api/posts/createPost`, formdata)
+    axios.post(`${API_KEY}/api/posts/createPost`, formdata)
       .then((res) => {
         // console.log(res);
         navigate("/admin");
