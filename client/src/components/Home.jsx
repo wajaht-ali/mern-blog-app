@@ -17,7 +17,7 @@ const Home = () => {
   console.log(API_KEY);
   useEffect(() => {
     axios.defaults.withCredentials = true;
-    axios.get(`${API_KEY}/api/posts/getAllNews`)
+    axios.get(`${API_KEY}/posts/getAllNews`)
       .then((result) => {
         // console.log(result);
         setPosts(result.data);

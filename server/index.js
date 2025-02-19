@@ -39,11 +39,11 @@ connectDB();
 // });
 // -----------Deployment section ---------------
 
-app.use("/api/auth", UserRouter);
-app.use("/api/posts", PostRouter);
-app.use("/api/apply", requireSignIn, ApplyRouter);
-app.use("/api/admin", AdminRouter);
-app.use("/api/chat", chatRouter);
+app.use("/auth", UserRouter);
+app.use("/posts", PostRouter);
+app.use("/apply", requireSignIn, ApplyRouter);
+app.use("/admin", AdminRouter);
+app.use("/chat", chatRouter);
 
 //testing route
 app.get("/", (req, res) => {

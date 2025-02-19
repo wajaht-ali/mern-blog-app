@@ -10,7 +10,7 @@ const Contacts = () => {
   const [cards, setCards] = useState([]);
   useEffect(() => {
     const fetchCards = async () => {
-      const res = await axios.get(`${API_KEY}/api/admin/applications`);
+      const res = await axios.get(`${API_KEY}/admin/applications`);
       if (res.data.success) {
         setCards(res.data.applications);
       }
@@ -20,7 +20,7 @@ const Contacts = () => {
     }
     fetchCards();
   }, [])
-  
+
   return (
     <div className='h-auto bg-blue-600 text-black px-4 border-2 w-full flex flex-col py-3'>
       <div className="py-3">

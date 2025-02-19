@@ -15,7 +15,7 @@ const Register = () => {
     e.preventDefault();
 
     axios.defaults.withCredentials = true;
-    axios.post(`${API_KEY}/api/auth/registerUser`, { name, email, password })
+    axios.post(`${API_KEY}/auth/registerUser`, { name, email, password })
       .then((response) => {
         console.log(response);
         if (response.data === "Success") {

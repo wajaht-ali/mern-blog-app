@@ -39,7 +39,7 @@ function App() {
 
   useEffect(() => {
     axios.defaults.withCredentials = true;
-    axios.get(`${API_KEY}/api/auth`)
+    axios.get(`${API_KEY}/auth`)
       .then((res) => {
         // console.log(res);
         setUser(res.data);

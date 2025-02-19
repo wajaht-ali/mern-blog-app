@@ -12,7 +12,7 @@ const Application = () => {
     useEffect(() => {
         try {
             const fetchData = async () => {
-                const res = await axios.get(`${API_KEY}/api/admin/applications/` + id);
+                const res = await axios.get(`${API_KEY}/admin/applications/` + id);
                 // console.log(res);
                 if (res.data.success) {
                     setApplication(res.data.app);

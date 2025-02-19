@@ -24,7 +24,7 @@ const Create = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.defaults.withCredentials = true;
-    axios.post(`${API_KEY}/api/posts/createPost`, formdata)
+    axios.post(`${API_KEY}/posts/createPost`, formdata)
       .then((res) => {
         // console.log(res);
         navigate("/author");

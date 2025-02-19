@@ -18,7 +18,7 @@ const Navbar = () => {
     setNav(!nav);
   }
   const handleLogout = () => {
-    axios.get(`${API_KEY}/api/auth/logout`)
+    axios.get(`${API_KEY}/auth/logout`)
       .then((res) => {
         console.log(res);
         if (res.data === "Success") {

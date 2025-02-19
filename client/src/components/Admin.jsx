@@ -13,7 +13,7 @@ const Admin = () => {
     const navigate = useNavigate();
     axios.defaults.withCredentials = true;
     useEffect(() => {
-        axios.get(`${API_KEY}/api/auth/verifyAdmin`)
+        axios.get(`${API_KEY}/auth/verifyAdmin`)
             .then((res) => {
                 setAdminId(res.data.id);
                 if (res.data.message !== "Success") {

@@ -8,7 +8,7 @@ const Users = () => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        axios.get(`${API_KEY}/api/admin/getAllUsers`, { withCredentials: true })
+        axios.get(`${API_KEY}/admin/getAllUsers`, { withCredentials: true })
             .then((res) => {
                 // console.log(res);
                 setUsers(res.data);
@@ -19,7 +19,7 @@ const Users = () => {
     }, [])
 
     const handleDelete = (id) => {
-        axios.delete(`${API_KEY}/api/admin/deleteUser/` + id)
+        axios.delete(`${API_KEY}/admin/deleteUser/` + id)
             .then((res) => {
                 window.location.reload();
                 // if(res.data === "Success") {
